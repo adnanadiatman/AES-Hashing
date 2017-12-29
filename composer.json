@@ -1,0 +1,20 @@
+{
+    "name": "adnanadiatman/aes-hashing",
+    "description": "Base AES password hasing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "adnan adiatman",
+            "email": "adnanadiatman@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "AesHashing\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
