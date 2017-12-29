@@ -15,6 +15,5 @@
         "psr-4": {
             "AesHashing\\": "src/"
         }
-    },
-    "minimum-stability": "stable"
+    }
 }
