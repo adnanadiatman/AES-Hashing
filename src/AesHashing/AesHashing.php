@@ -13,7 +13,7 @@ class AesHashing
         $iv     = openssl_random_pseudo_bytes($ivlen);
         $hashed = openssl_encrypt($plaintext, $cipher, $password, $options = 0, $iv, $tag);
 
-        return $plaintext . "." . base64_encode($iv) . "." . base64_encode($hashed);
+        return $plaintext . "." . base64_encode($iv)."." . base64_encode($tag). "." . base64_encode($hashed);
     }
 
     static function checkAcrypt($password, $hashed)
@@ -21,11 +21,11 @@ class AesHashing
         $components = explode(".", $hashed);
         $cipher = "aes-256-gcm";
 
-        if(count($components)!=3){
+        if(count($components)!=4){
             return false;
         }
 
-        $result = openssl_decrypt(base64_decode(@$components[2]), $cipher, $password, $options = 0, base64_decode(@$components[1]), $tag);
+        $result = openssl_decrypt(base64_decode(@$components[3]), $cipher, $password, $options = 0, base64_decode(@$components[1]), base64_decode(@$components[2]));
 
         if($result===$components[0]){
             return true;
