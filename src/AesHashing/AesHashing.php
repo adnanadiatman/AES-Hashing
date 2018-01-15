@@ -6,8 +6,6 @@ class AesHashing
 {
     static function acrypt($password)
     {
-        base64_encode($password);
-
         $rand = rand(10000,100000);
         for ($i = 0; $i <= $rand; $i++)
             $password = sha1($password);
@@ -24,8 +22,6 @@ class AesHashing
 
     static function checkAcrypt($password, $hashed)
     {
-        base64_encode($password);
-
         $components = explode(".", $hashed);
         $cipher     = "aes-256-gcm";
 
