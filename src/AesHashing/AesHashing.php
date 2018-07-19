@@ -10,7 +10,7 @@ class AesHashing
         for ($i = 0; $i <= $rand; $i++)
             $password = sha1($password);
 
-        $cipher = "aes-256-gcm";
+        $cipher = "aes-256-cbc";
 
         $ivlen     = openssl_cipher_iv_length($cipher);
         $plaintext = openssl_random_pseudo_bytes($ivlen);
@@ -23,7 +23,7 @@ class AesHashing
     static function checkAcrypt($password, $hashed)
     {
         $components = explode(".", $hashed);
-        $cipher     = "aes-256-gcm";
+        $cipher     = "aes-256-cbc";
 
         if (count($components) != 4) {
             return false;
