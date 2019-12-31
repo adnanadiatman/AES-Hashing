@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "AesHashing\\": "src/"
+            "Nsingularity\\AesHashing\\": "src/"
         }
     }
 }
